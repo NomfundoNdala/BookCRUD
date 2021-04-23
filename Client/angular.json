@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "BookApp"
+  "defaultProject": "BookApp",
+  "cli": {
+    "analytics": "5f90a1a4-bb57-4750-b6c1-d1938667ad1f"
+  }
 }
