@@ -15,8 +15,7 @@ export class CrudService {
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
   AddBook (data: BookInterface): Observable<any> {
-
-    return this.httpClient.post(this.REST_API, data);
+    return this.httpClient.post(this.REST_API, data, {headers: this.httpHeaders});
   }
 
   GetBooks () {
