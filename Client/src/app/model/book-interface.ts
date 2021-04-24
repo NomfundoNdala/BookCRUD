@@ -1,6 +1,6 @@
 export interface BookInterface {
   id : String;
-  name : String;
+  title : String;
   urlImage : String;
   description : String;
   author : String;

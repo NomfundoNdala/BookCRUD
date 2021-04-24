@@ -1,6 +1,30 @@
-<h4>Books</h4>
-<ul class="list-group" *ngFor="let book of Books">
-    <li class="list-group-item ">Book Author : {{book.author}}</li> 
-    <li class="list-group-item ">Description  : {{book. description}}</li>   
-   <img src="{{book.urlImage}}" alt=""> 
-</ul>
+<div class="container">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Books List</h2>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Description</th>
+          <th scope="col">Image</th>
+          <th class="text-center" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of Books; let i = index">
+          <th scope="row">{{book.title}}</th>
+          <td>{{book.author}}</td>
+          <td>{{book.description}}</td>
+          <img src="{{book.urlImage}}">/>
+          <td class="text-center">
+            <button class="btn btn-sm btn-primary" routerLink="/editBook/{{book.id}}">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="delete(book.id, i)">Delete</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

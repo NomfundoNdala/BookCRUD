@@ -18,7 +18,7 @@ export class AllBooksComponent implements OnInit {
       this.Books =res;
     });
   }
-
+//deletes a book
   delete(id:string, i:number) {
     console.log(id);
     if(window.confirm('Do you want to go ahead?')) {
