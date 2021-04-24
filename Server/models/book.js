@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // Book model
 const bookSchema = new mongoose.Schema({
-    name: {
+    title: {
       type: String,
       required : true
     },
@@ -17,6 +17,9 @@ const bookSchema = new mongoose.Schema({
     urlImage: {
         type: String,
         required : true
+      },
+      id: {
+        type: String
       }
   }, {
     collection: 'books'

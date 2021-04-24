@@ -9,7 +9,7 @@ import { catchError, map } from 'rxjs/operators'
 })
 export class CrudService {
 
-  REST_API: string = 'http://localhost:5000/books';
+  REST_API: string = 'http://localhost:5000';
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private httpClient: HttpClient) { }
@@ -17,7 +17,7 @@ export class CrudService {
 //adding a book
 AddBook (data: BookInterface): Observable<any> {
 
-  return this.httpClient.post(this.REST_API, data)
+  return this.httpClient.post(this.REST_API , data)
     .pipe(
       catchError(this.handleError)
     )
@@ -25,7 +25,7 @@ AddBook (data: BookInterface): Observable<any> {
 
   //Gets all books
   GetBooks () {
-    return this.httpClient.get(this.REST_API);
+    return this.httpClient.get(this.REST_API +'/books');
   }
 
   //Gets a single book

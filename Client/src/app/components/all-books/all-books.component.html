@@ -7,22 +7,26 @@
     <table class="table table-bordered">
       <thead>
         <tr>
+          <th scope="col">Image</th>
+          <th scope="col">BookID</th>
           <th scope="col">Title</th>
           <th scope="col">Author</th>
           <th scope="col">Description</th>
-          <th scope="col">Image</th>
           <th class="text-center" scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let book of Books; let i = index">
+          <td>
+            <img src="{{book.urlImage}}" style="width:50px; height:50px"/>
+          </td>
+          <th scope="row">{{book._id}}</th>
           <th scope="row">{{book.title}}</th>
           <td>{{book.author}}</td>
           <td>{{book.description}}</td>
-          <img src="{{book.urlImage}}">/>
           <td class="text-center">
-            <button class="btn btn-sm btn-primary" routerLink="/editBook/{{book.id}}">Edit</button>
-            <button class="btn btn-sm btn-danger" (click)="delete(book.id, i)">Delete</button>
+            <button class="btn btn-sm btn-primary" (click)="editBookRoute(book._id)" routerLink="editBook/{{book._id}}">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="delete(book._id, i)">Delete</button>
         </tr>
       </tbody>
     </table>

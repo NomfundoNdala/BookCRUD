@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CrudService } from 'src/app/service/crud.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class AllBooksComponent implements OnInit {
   
   Books:any = [];
 
-  constructor(private crudService: CrudService) { }
+  constructor(private crudService: CrudService,private router: Router) { }
 
   ngOnInit(): void {
     this.crudService.GetBooks().subscribe(res => {
@@ -28,4 +29,11 @@ export class AllBooksComponent implements OnInit {
     }
   }
 
+  editBookRoute(id :string)
+  {
+    this.router.navigateByUrl(`editBook/'+${id}`);
+
+  }
+
 }
+
